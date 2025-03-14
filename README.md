@@ -54,6 +54,8 @@ File setup.bat sẽ tự động:
 
 1. Kích hoạt môi trường ảo:
 ```bash
+  cd ptud-gk-de-2
+```bash
 call venv\Scripts\activate.bat
 ```
 
