@@ -37,6 +37,9 @@
 ```bash
 git clone <repository-url>
 ```
+```bash
+  cd ptud-gk-de-2
+```
 
 2. Chạy file setup.bat:
 ```bash
@@ -52,16 +55,12 @@ File setup.bat sẽ tự động:
 ## Sử dụng
 
 1. Kích hoạt môi trường ảo:
-```bash
-  cd ptud-gk-de-2
-```
   
 ```bash
   call venv\Scripts\activate.bat
 ```
 
-```
-
+```bash
 2. Chạy ứng dụng:
 ```bash
 python task_manager\app.py
