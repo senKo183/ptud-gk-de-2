@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title %}Thông tin cá nhân{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title mb-0">Thông tin cá nhân</h3>
+            </div>
+            <div class="card-body">
+                <div class="text-center mb-4">
+                    <img src="{{ current_user.avatar or url_for('static', filename='images/default-avatar.png') }}" 
+                         alt="Avatar" 
+                         class="rounded-circle mb-3" 
+                         style="width: 150px; height: 150px; object-fit: cover;">
+                    <h4>{{ current_user.username }}</h4>
+                </div>
+
+                <form method="POST" action="{{ url_for('profile') }}" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Tên người dùng</label>
+                        <input type="text" class="form-control" id="username" name="username" 
+                               value="{{ current_user.username }}" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" 
+                               value="{{ current_user.email or '' }}">
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="avatar" class="form-label">Avatar</label>
+                        <input type="file" class="form-control" id="avatar" name="avatar" 
+                               accept="image/*">
+                        <div class="form-text">Chấp nhận các file ảnh (jpg, png, gif)</div>
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save"></i> Lưu thay đổi
+                        </button>
+                        <a href="{{ url_for('index') }}" class="btn btn-secondary">
+                            <i class="fas fa-arrow-left"></i> Quay lại
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 
